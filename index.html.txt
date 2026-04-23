@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Runner Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+      color: #00ffcc;
+    }
+
+    p {
+      font-size: 18px;
+      opacity: 0.8;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ffcc;
+      color: black;
+    }
+
+    /* scroll animation */
+    .hidden {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 1s;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stats */
+    .stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      font-size: 24px;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 40px;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SECTION 1 -->
+  <section>
+    <h1>🏃 Dũng Runner</h1>
+    <p>I run, therefore I am alive.</p>
+    <a href="#about" class="btn">Scroll Down</a>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section id="about" class="hidden">
+    <h1>About Me</h1>
+    <p>Runner 21KM | Love long run | Chasing better pace mỗi ngày</p>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="hidden">
+    <h1>My Stats</h1>
+    <div class="stats">
+      <div class="stat">
+        <span>21KM</span>
+        Best Distance
+      </div>
+      <div class="stat">
+        <span>5:30</span>
+        Avg Pace
+      </div>
+      <div class="stat">
+        <span>300+</span>
+        Total KM
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="hidden">
+    <h1>My Goal</h1>
+    <p>Sub 2 Half Marathon 🔥</p>
+    <a href="#" class="btn">Follow My Journey</a>
+  </section>
+
+  <script>
+    const elements = document.querySelectorAll('.hidden');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
